@@ -17,11 +17,7 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
-    #def get_context_data(self,*args ,**kwargs):
-        #stuff= get_object_or_404(Post, id=self.kwargs['pk'])
-        #total_likes=stuff.total_likes()
-        #context["total_likes"] = total_likes
-        #return context
+
 
 class BlogCreateView(CreateView):
     model = Post
@@ -44,6 +40,7 @@ class BlogComent(CreateView):
     fields = ['post','comment','author']
 class BlogDetailViewComment(DetailView):
     model = Comment
+    context_object_name='comment'
     template_name = 'Comment_detail.html'
 
 def LikeView(request,pk):
